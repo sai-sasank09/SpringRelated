@@ -1,12 +1,15 @@
 package com.sasank.SpringBootREST.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
+@Entity
 public class JobPost {
-
+    @Id
     private int postId;
     private String postProfile;
     private String postDesc;
