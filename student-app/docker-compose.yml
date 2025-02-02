@@ -1,0 +1,36 @@
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    networks:
+      - my-network
+
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER : sasank
+      POSTGRES_PASSWORD : 1234
+      POSTGRES_DB : postgres
+
+    ports:
+      - 5433:5432
+    networks:
+      - my-network
+
+    volumes:
+      - postgres-s-data:/var/lib/postgresql/data
+
+
+
+
+networks:
+  my-network:
+    driver: bridge
+
+volumes:
+  postgres-s-data:
+
+
